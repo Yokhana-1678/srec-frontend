@@ -1,0 +1,115 @@
+
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --background: #F8F9FD;
+  --foreground: #1E1B4B;
+  --sidebar-bg: #0F0A2A;
+  --accent: #6C5CE7;
+  --accent-light: #ECE9FC;
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(229, 231, 235, 0.5);
+  --card-shadow: 0 10px 30px -10px rgba(108, 92, 231, 0.08), 0 1px 3px rgba(108, 92, 231, 0.03);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #E2E8F0;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #CBD5E1;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .4; }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-pulse {
+  animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Floating labels effect */
+.form-group {
+  position: relative;
+}
+.form-input {
+  border: 1.5px solid #E2E8F0;
+  background: #FAFAFD;
+  transition: all 0.2s ease;
+}
+.form-input:focus {
+  border-color: var(--accent);
+  background: #FFFFFF;
+  box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.12);
+}
+
+/* ── Hover styles (avoids forced reflow from JS event handlers) ── */
+.hover-row:hover {
+  background: #F9F8FD !important;
+}
+.hover-row.selected:hover {
+  background: #F3F0FF !important;
+}
+.btn-edit:hover {
+  background: #ECE9FC !important;
+}
+.btn-delete:hover {
+  background: #FECACA !important;
+}
+.btn-nav:hover {
+  background: rgba(108, 92, 231, 0.12) !important;
+}
+.btn-add:hover {
+  background: #5b4cd8 !important;
+}
+.student-name:hover {
+  color: var(--accent) !important;
+}
