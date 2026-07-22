@@ -12,3 +12,17 @@ export const getStudent = (id) => API.get(`/students/${id}`);
 export const createStudent = (data) => API.post('/students', data);
 export const updateStudent = (id, data) => API.put(`/students/${id}`, data);
 export const deleteStudent = (id) => API.delete(`/students/${id}`);
+
+export const fetchData = async () => {
+    try {
+        const response = await fetch(`${BASE_URL}/api/data`);
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Error fetching data:', error);
+        throw error;
+    }
+};
